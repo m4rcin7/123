@@ -1,0 +1,25 @@
+import { createSignal } from "solid-js";
+import NodeEditor from "../components/NodeEditor";
+import GraphView from "../components/GraphView";
+import { Link } from "@solidjs/router";
+
+export default function Home() {
+  const [nodes, setNodes] = createSignal([]);
+  const [edges, setEdges] = createSignal([]);
+
+  return (
+    <div style="display: flex; gap: 2rem; padding: 1rem;">
+      <NodeEditor onAdd={(n) => setNodes([...nodes(), n])} />
+      <div style="flex: 1">
+        <GraphView nodes={nodes()} edges={edges()} />
+        <ul>
+          {nodes().map((n) => (
+            <li key={n.id}>
+              <Link href={`/note/${n.id}`}>{n.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}

@@ -1,10 +1,13 @@
-import styles from "./App.module.css";
+import { Routes } from "@solidjs/router";
+import RoutesList from "./routes";
 
-function App() {
+export default function App() {
   return (
-    <div class={styles.App}>
-    </div>
+    <main style="padding: 1rem;">
+      <h1>🧠 Mind Garden</h1>
+      <Routes>
+        <RoutesList />
+      </Routes>
+    </main>
   );
 }
-
-export default App;
