@@ -1,7 +1,6 @@
 import { createSignal } from "solid-js";
 import NodeEditor from "../components/NodeEditor";
 import GraphView from "../components/GraphView";
-import { Link } from "@solidjs/router";
 
 export default function Home() {
   const [nodes, setNodes] = createSignal([]);
@@ -15,7 +14,7 @@ export default function Home() {
         <ul>
           {nodes().map((n) => (
             <li key={n.id}>
-              <Link href={`/note/${n.id}`}>{n.label}</Link>
+              <a href={`/note/${n.id}`}>{n.label}</a>
             </li>
           ))}
         </ul>
