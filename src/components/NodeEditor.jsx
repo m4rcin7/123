@@ -11,14 +11,14 @@ export default function NodeEditor(props) {
 
   return (
     <div>
-      <h2>Dodaj notatkę</h2>
+      <h2>Add note:</h2>
       <input
         type="text"
         value={text()}
         onInput={(e) => setText(e.target.value)}
-        placeholder="Twoja myśl..."
+        placeholder="Your brain..."
       />
-      <button onClick={addNode}>Dodaj</button>
+      <button onClick={addNode}>+ Add</button>
     </div>
   );
 }
