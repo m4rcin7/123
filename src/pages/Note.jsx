@@ -5,8 +5,8 @@ export default function Note() {
 
   return (
     <div style="padding: 1rem;">
-      <a href="/">← Powrót</a>
-      <h2>Notatka ID: {params.id}</h2>
+      <a href="/">← BACK</a>
+      <h2>NOTE ID: {params.id}</h2>
     </div>
   );
 }

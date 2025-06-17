@@ -8,6 +8,7 @@ export default function Home() {
 
   return (
     <div style="display: flex; gap: 2rem; padding: 1rem;">
+      <h1>Graph Editor</h1>
       <NodeEditor onAdd={(n) => setNodes([...nodes(), n])} />
       <div style="flex: 1">
         <GraphView nodes={nodes()} edges={edges()} />
