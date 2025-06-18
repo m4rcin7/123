@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #0d0d0d;
+  color: #ccffcc;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  color: #66ff66;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: #99ff99;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #33ff33;
+}
+
+.graphWrapper {
+  flex: 1;
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}

@@ -2,6 +2,8 @@ import { createSignal } from "solid-js";
 import NodeEditor from "../components/NodeEditor";
 import GraphView from "../components/GraphView";
 
+import styles from "./Home.module.css";
+
 export default function Home() {
   const [nodes, setNodes] = createSignal([]);
   const [edges, setEdges] = createSignal([]);
