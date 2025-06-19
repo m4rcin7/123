@@ -1,5 +1,5 @@
 import { createSignal } from "solid-js";
-import NodeEditor from "../components/NodeEditor";
+import NoteEditor from "../components/NoteEditor";
 import GraphView from "../components/GraphView";
 
 import styles from "./Home.module.css";
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div style="display: flex; gap: 2rem; padding: 1rem;">
       <h1>Graph Editor</h1>
-      <NodeEditor onAdd={(n) => setNodes([...nodes(), n])} />
+      <NoteEditor onAdd={(n) => setNodes([...nodes(), n])} />
       <div style="flex: 1">
         <GraphView nodes={nodes()} edges={edges()} />
         <ul>

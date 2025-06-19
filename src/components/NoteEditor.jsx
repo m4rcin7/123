@@ -1,6 +1,7 @@
 import { createSignal } from "solid-js";
+import styles from "./NoteEditor.module.css";
 
-export default function NodeEditor(props) {
+export default function NoteEditor(props) {
   const [text, setText] = createSignal("");
 
   const addNode = () => {
@@ -10,15 +11,18 @@ export default function NodeEditor(props) {
   };
 
   return (
-    <div>
-      <h2>Add note:</h2>
+    <div class={styles.editorContainer}>
+      <h2 class={styles.editorTitle}>Add note:</h2>
       <input
+        class={styles.editorInput}
         type="text"
         value={text()}
         onInput={(e) => setText(e.target.value)}
         placeholder="Your brain..."
       />
-      <button onClick={addNode}>+ Add</button>
+      <button class={styles.editorButton} onClick={addNode}>
+        + Add
+      </button>
     </div>
   );
 }
