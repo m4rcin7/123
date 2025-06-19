@@ -1,5 +1,6 @@
 import cytoscape from "cytoscape";
 import { onMount, onCleanup } from "solid-js";
+import styles from "./GraphView.module.css";
 
 export default function GraphView(props) {
   let container;
@@ -15,10 +16,29 @@ export default function GraphView(props) {
         {
           selector: "node",
           style: {
-            "background-color": "#61bffc",
+            "background-color": "#4e91fc",
+            "border-color": "#fff",
+            "border-width": 2,
+            "border-opacity": 1,
             label: "data(label)",
-            color: "#fff",
+            "font-size": 14,
+            color: "#ffffff",
             "text-valign": "center",
+            "text-halign": "center",
+            "text-outline-width": 2,
+            "text-outline-color": "#4e91fc",
+            "overlay-padding": "6px",
+            "z-index": 10,
+            "transition-property": "background-color, border-width",
+            "transition-duration": "0.2s",
+          },
+        },
+        {
+          selector: "node:hover",
+          style: {
+            "background-color": "#2b6cb0",
+            "border-width": 4,
+            cursor: "pointer",
           },
         },
         {
@@ -26,6 +46,9 @@ export default function GraphView(props) {
           style: {
             width: 2,
             "line-color": "#ccc",
+            "target-arrow-color": "#ccc",
+            "target-arrow-shape": "triangle",
+            "curve-style": "bezier",
           },
         },
       ],
@@ -36,9 +59,6 @@ export default function GraphView(props) {
   });
 
   return (
-    <div
-      ref={(el) => (container = el)}
-      style="width: 100%; height: 500px;"
-    ></div>
+    <div ref={(el) => (container = el)} class={styles.graphContainer}></div>
   );
 }
