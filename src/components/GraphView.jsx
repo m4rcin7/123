@@ -1,12 +1,15 @@
 import cytoscape from "cytoscape";
-import { onMount, onCleanup } from "solid-js";
+import { onMount, onCleanup, createEffect } from "solid-js";
+import { useNavigate } from "@solidjs/router";
 import styles from "./GraphView.module.css";
 
 export default function GraphView(props) {
   let container;
+  let cy;
+  const navigate = useNavigate();
 
   onMount(() => {
-    const cy = cytoscape({
+    cy = cytoscape({
       container,
       elements: [
         ...props.nodes.map((n) => ({ data: { id: n.id, label: n.label } })),
@@ -55,10 +58,23 @@ export default function GraphView(props) {
       layout: { name: "cose" },
     });
 
+    cy.on("tap", "node", (event) => {
+      const nodeId = event.target.id();
+      navigate(`/note/${nodeId}`);
+    });
+
     onCleanup(() => cy.destroy());
   });
 
-  return (
-    <div ref={(el) => (container = el)} class={styles.graphContainer}></div>
-  );
+  createEffect(() => {
+    if (!cy) return;
+    const newElements = [
+      ...props.nodes.map((n) => ({ data: { id: n.id, label: n.label } })),
+      ...props.edges.map((e) => ({ data: e })),
+    ];
+    cy.json({ elements: newElements });
+    cy.layout({ name: "cose" }).run();
+  });
+
+  return <div ref={(el) => (container = el)} class={styles.graphContainer}></div>;
 }

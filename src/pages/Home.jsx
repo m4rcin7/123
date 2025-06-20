@@ -13,14 +13,14 @@ export default function Home() {
       <h1>Graph Editor</h1>
       <NoteEditor onAdd={(n) => setNodes([...nodes(), n])} />
       <div style="flex: 1">
-        <GraphView nodes={nodes()} edges={edges()} />
-        <ul>
-          {nodes().map((n) => (
-            <li key={n.id}>
-              <a href={`/note/${n.id}`}>{n.label}</a>
-            </li>
-          ))}
-        </ul>
+        <GraphView nodes={nodes()} edges={edges()}/>
+          <ul>
+            {nodes().map((n) => (
+              <li key={n.id}>
+                <a href={`/note/${n.id}`}>{n.label}</a>
+              </li>
+            ))}
+          </ul>
       </div>
     </div>
   );
