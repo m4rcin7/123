@@ -76,5 +76,7 @@ export default function GraphView(props) {
     cy.layout({ name: "cose" }).run();
   });
 
-  return <div ref={(el) => (container = el)} class={styles.graphContainer}></div>;
+  return (
+    <div ref={(el) => (container = el)} class={styles.graphContainer}></div>
+  );
 }

@@ -6,8 +6,12 @@ export default function NoteEditor(props) {
 
   const addNode = () => {
     if (!text().trim()) return;
-    props.onAdd({ id: crypto.randomUUID(), label: text() });
+    props.onAdd({ id: crypto.randomUUID(), label: text().trim() });
     setText("");
+  };
+
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") addNode();
   };
 
   return (
@@ -18,6 +22,7 @@ export default function NoteEditor(props) {
         type="text"
         value={text()}
         onInput={(e) => setText(e.target.value)}
+        onKeyPress={onKeyPress}
         placeholder="Your brain..."
       />
       <button class={styles.editorButton} onClick={addNode}>
